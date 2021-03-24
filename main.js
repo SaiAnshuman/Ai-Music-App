@@ -3,6 +3,7 @@ leftWristY = 0;
 rightWristX = 0;
 rightWristY = 0;
 scoreleftWristY = 0;
+scorerightWristY = 0;
 
 song1 = "";
 song2 = "";
@@ -48,12 +49,36 @@ function setup() {
  RemoveDecimal = floor(leftWristYNumber);
  song1.setVolume(1);
  song1.play();
+
+ 
  
  
 
 }
+
+if(scorerightWristY > 0.2){
+
+   circle(rightWristX,rightWristY,20);
+   rightWristYNumber =  Number(rightWristY);
+   RemoveDecimal = floor(rightWristYNumber);
+   song2.setVolume(1);
+   song2.play();
    
    }
+
+   if(scoreleftWristY < 0.2){
+
+     song1.stop();
+
+   }
+
+   if(scorerightWristY < 0.2){
+
+      song2.stop();
+ 
+    }
+
+}
    
    
    function modelLoaded(){
@@ -67,7 +92,7 @@ function setup() {
 
         if(results.length > 0){
           scoreleftWristY = results[0].pose.keypoints[9].score;
-
+          scorerightWristY = results[0].pose.keypoints[10].score;
           console.log(scoreleftWristY);      
 
            console.log(results);
