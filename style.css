@@ -1,0 +1,61 @@
+.heading{
+
+    font-size: 23px;
+    width: 100%;
+    margin: 0px;
+    box-shadow: 5px 5px 25px green ;
+    animation-name: color_change;
+    animation-duration: 4s;
+    animation-iteration-count:infinite;
+    color: hotpink;
+   
+   }
+
+   @keyframes color_change{
+ 
+    from{background-color: blue;}
+    to{background-color: black;}
+
+}
+   
+   body{
+       
+    background-size: cover;
+   
+   }
+   
+   .note{
+   
+    font-size: 18px;
+    color: limegreen;
+   
+   }
+   
+   .div_music_name{
+   
+   float: centers;
+    
+   
+   }
+   
+
+   
+   #music{
+   
+   font-size: 23px;
+   margin:15px;
+   
+   }
+
+ 
+   
+   
+ 
+   canvas{
+
+    border-radius: 15px;
+    border: 9px double cyan;
+    box-shadow: 5px 5px 15px lime;
+    margin-top: 50px;
+   
+   }
