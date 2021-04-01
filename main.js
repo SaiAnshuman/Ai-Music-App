@@ -34,10 +34,16 @@ function setup() {
     
    
    }
+
+   song1status="";
+   song2status="";
    
    function draw(){
    
    image(video,0,0,600,500);
+    
+    song1status = song1.isPlaying();
+    song2status = song2.isPlaying();
 
    stroke("#000000");
    fill("#DC143C");
@@ -45,10 +51,13 @@ function setup() {
  if(scoreleftWristY > 0.2){
 
  circle(leftWristX,leftWristY,20);
- leftWristYNumber =  Number(leftWristY);
- RemoveDecimal = floor(leftWristYNumber);
- song1.setVolume(1);
- song1.play();
+ song1.stop();
+ if(song2status == false){
+   
+   song2.play();
+   document.getElementById("music").innerHTML = "Playing - THINK IT THRU";
+ }
+
 
  
  
@@ -59,24 +68,16 @@ function setup() {
 if(scorerightWristY > 0.2){
 
    circle(rightWristX,rightWristY,20);
-   rightWristYNumber =  Number(rightWristY);
-   RemoveDecimal = floor(rightWristYNumber);
-   song2.setVolume(1);
-   song2.play();
+   song2.stop();
+   if(song1status == false){
+    song1.play();
+    document.getElementById("music").innerHTML = "Playing - Chill Lofi";
+
+   }
+
    
    }
 
-   if(scoreleftWristY < 0.2){
-
-     song1.stop();
-
-   }
-
-   if(scorerightWristY < 0.2){
-
-      song2.stop();
- 
-    }
 
 }
    
@@ -86,6 +87,14 @@ if(scorerightWristY > 0.2){
     console.log("Model Has Been Loaded");
     
     
+    }
+
+    function play(){
+      
+      song.play();
+      song.setVolume(1);
+      song.rate(1);
+
     }
 
     function gotPoses(results){
